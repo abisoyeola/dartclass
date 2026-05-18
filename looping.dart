@@ -1,10 +1,3 @@
-import 'dart:io';
-
-//If condition
-//Loop
-//functions
-//OOP
-
 String checkEvenOddPrime(int number) {
   if (number == 2 || number == 3 || number == 5 || number == 7) {
     if (number % 2 == 0) {
@@ -29,14 +22,15 @@ String checkEvenOddPrime(int number) {
 }
 
 void main() {
-  print("Please enter a number: ");
-  String? input = stdin.readLineSync();
-  int number = int.parse(input!);
+  // using for
 
-  //checking if the number is even or odd
-  print("$number % 2 = ${number % 2}");
-
-  print(checkEvenOddPrime(number));
-
-  //Looping
+  for (int i = 1; i <= 50; i++) {
+    print("The value of i is: $i");
+    print(checkEvenOddPrime(i));
+  }
 }
+
+
+// Write a program that allow users to enter 10 random integer numbers and store it in a list and then print the list and the sum of the numbers in the list.
+//Then write a function that takes a list of integers as input and returns the average of the numbers in the list. Then call the function and print the result.
+//Then a function that takes a list of integers as input and returns the maximum number in the list.and print each number in the list as either even or odd.

@@ -1,44 +1,61 @@
 import 'dart:io';
 
-int performAMSDMo(int a, int b, String op) {
+// int performAMSDMo(int a, int b, String op) {
+//   switch (op) {
+//     case "+":
+//       return a + b;
+//     case "-":
+//       return a - b;
+//     case "*":
+//       return a * b;
+//     case "/":
+//       return a ~/ b; // integer division
+//     case "%":
+//       return a % b;
+//     default:
+//       print("Invalid operator");
+//       return 0;
+//   }
+// }
+
+T operation<T extends num>(T a, T b, String op) {
   switch (op) {
     case "+":
-      return a + b;
+      return a + b as T;
     case "-":
-      return a - b;
+      return a - b as T;
     case "*":
-      return a * b;
+      return a * b as T;
     case "/":
-      return a ~/ b; // integer division
+      return a ~/ b as T; // integer division
     case "%":
-      return a % b;
+      return a % b as T;
     default:
       print("Invalid operator");
-      return 0;
+      return 0 as T;
   }
 }
 
-double performAMSDM(double a, double b, String op) {
-  switch (op) {
-    case "+":
-      return a + b;
-    case "-":
-      return a - b;
-    case "*":
-      return a * b;
-    case "/":
-      return a / b; // floating-point division
-    case "%":
-      return a % b;
-    default:
-      print("Invalid operator");
-      return 0;
-  }
-}
+// double performAMSDM(double a, double b, String op) {
+//   switch (op) {
+//     case "+":
+//       return a + b;
+//     case "-":
+//       return a - b;
+//     case "*":
+//       return a * b;
+//     case "/":
+//       return a / b; // floating-point division
+//     case "%":
+//       return a % b;
+//     default:
+//       print("Invalid operator");
+//       return 0;
+//   }
+// }
 
 void main() {
   double a, b;
-  int aInt, bInt;
   String? inputOp;
   print(
     "Enter chose option I for integer calculation and D for double calculation: ",
@@ -48,14 +65,14 @@ void main() {
   if (choice == "I") {
     print("Please enter the first integer: ");
     String? inputA = stdin.readLineSync();
-    aInt = int.parse(inputA!);
+    a = double.parse(inputA!);
     print("Please enter the second integer: ");
     String? inputB = stdin.readLineSync();
-    bInt = int.parse(inputB!);
+    b = double.parse(inputB!);
     print("Please enter the operator: ");
     inputOp = stdin.readLineSync();
 
-    print(performAMSDMo(aInt, bInt, inputOp!));
+    print(operation(a, b, inputOp!));
   } else {
     print("Please enter the first integer: ");
     String? inputA = stdin.readLineSync();
@@ -66,6 +83,6 @@ void main() {
     print("Please enter the operator: ");
     String? inputOp = stdin.readLineSync();
 
-    print(performAMSDM(a, b, inputOp!));
+    print(operation(a, b, inputOp!));
   }
 }
